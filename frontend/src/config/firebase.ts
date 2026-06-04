@@ -4,13 +4,13 @@ import { getFirestore, initializeFirestore, connectFirestoreEmulator } from 'fir
 import { getAnalytics, isSupported } from 'firebase/analytics';
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyD-u2rl4AP9yFZw86uEt0X0SmpiQcl16wQ",
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "vibevilaa.firebaseapp.com",
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "vibevilaa",
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "vibevilaa.firebasestorage.app",
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "338044474798",
-  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:338044474798:web:b4afa22f514ecd629fe43f",
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || "G-ZVF8Y8K8C1",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase
