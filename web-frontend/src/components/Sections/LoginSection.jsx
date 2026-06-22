@@ -9,19 +9,24 @@ const LoginSection = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   
-  const { loginWithEmail, signInWithGoogle } = useAuth();
+  const { loginWithEmail, registerWithEmail, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
 
-  const handleEmailLogin = async (e) => {
+  const handleAuth = async (e) => {
     e.preventDefault();
     try {
       setError('');
       setLoading(true);
-      await loginWithEmail(email, password);
+      if (isLogin) {
+        await loginWithEmail(email, password);
+      } else {
+        await registerWithEmail(email, password);
+      }
       navigate('/');
     } catch (err) {
-      setError('Failed to log in: ' + err.message);
+      setError(`Failed to ${isLogin ? 'log in' : 'create account'}: ` + err.message);
     } finally {
       setLoading(false);
     }
@@ -53,13 +58,15 @@ const LoginSection = () => {
         </div>
         <div className="login-form-container">
           <div className="login-header">
-            <h1 className="login-title">Welcome Back</h1>
-            <p className="login-subtitle">Enter your credentials to access the villa.</p>
+            <h1 className="login-title">{isLogin ? 'Welcome Back' : 'Join the Villa'}</h1>
+            <p className="login-subtitle">
+              {isLogin ? 'Enter your credentials to access the villa.' : 'Create an avatar to enter the digital reality.'}
+            </p>
           </div>
           
           {error && <div className="auth-error" style={{ color: '#ff4d4f', marginBottom: '1rem', background: 'rgba(255, 77, 79, 0.1)', padding: '10px', borderRadius: '4px', border: '1px solid #ff4d4f' }}>{error}</div>}
           
-          <form className="login-form" onSubmit={handleEmailLogin}>
+          <form className="login-form" onSubmit={handleAuth}>
             <div className="form-group floating-label-group">
               <input 
                 type="email" 
@@ -86,17 +93,19 @@ const LoginSection = () => {
               <label htmlFor="password" className="floating-label">Secret Key</label>
             </div>
             
-            <div className="form-options">
-              <label className="custom-checkbox">
-                <input type="checkbox" />
-                <span className="checkmark"></span>
-                <span className="checkbox-text">Remember me</span>
-              </label>
-              <a href="#" className="forgot-password">Forgot Key?</a>
-            </div>
+            {isLogin && (
+              <div className="form-options">
+                <label className="custom-checkbox">
+                  <input type="checkbox" />
+                  <span className="checkmark"></span>
+                  <span className="checkbox-text">Remember me</span>
+                </label>
+                <a href="#" className="forgot-password">Forgot Key?</a>
+              </div>
+            )}
             
-            <button type="submit" disabled={loading} className="btn-primary login-submit-btn">
-              <span>{loading ? 'Initializing...' : 'Initialize Link'}</span>
+            <button type="submit" disabled={loading} className="btn-primary login-submit-btn" style={{ marginTop: isLogin ? '0' : '1rem' }}>
+              <span>{loading ? 'Initializing...' : (isLogin ? 'Initialize Link' : 'Create Avatar')}</span>
             </button>
 
             <div style={{ display: 'flex', alignItems: 'center', margin: '1.5rem 0' }}>
@@ -123,7 +132,11 @@ const LoginSection = () => {
           </form>
           
           <p className="login-footer">
-            Don't have an avatar yet? <a href="#" className="apply-link">Apply Now</a>
+            {isLogin ? (
+              <>Don't have an avatar yet? <a href="#" onClick={(e) => { e.preventDefault(); setIsLogin(false); }} className="apply-link">Apply Now</a></>
+            ) : (
+              <>Already have an avatar? <a href="#" onClick={(e) => { e.preventDefault(); setIsLogin(true); }} className="apply-link">Initialize Link</a></>
+            )}
           </p>
         </div>
       </div>

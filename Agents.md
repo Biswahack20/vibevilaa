@@ -24,6 +24,12 @@ This document outlines the core development rules, aesthetic guidelines, and pro
 - Implemented robust Environment Variable validation using Zod in both the frontend (`web-frontend/src/config/env.js`) and backend (`backend/src/config/env.js`) to guarantee secure, strongly-typed startup configurations.
 - Stabilized frontend dependency ecosystem by resolving ESLint peer dependency conflicts (v9.21.0) and heavily customizing ESLint configuration to support Vite + React globals, suppressing overly strict custom rules to maintain developer velocity.
 
+### Authentication & Identity
+- Implemented full-stack user authentication using Firebase (Google Provider & Email/Password).
+- Built an interactive, toggleable "Welcome Back" / "Join the Villa" UI in `LoginSection` that automatically routes between `loginWithEmail` and `registerWithEmail`.
+- Secured backend JWT verification via `firebase-admin` utilizing `FIREBASE_PROJECT_ID` environment injection, bypassing the need for explicit service account files.
+- Synchronized Firebase authenticated users directly to the MongoDB backend upon successful login/signup.
+
 ### UI & Aesthetics
 - Created a highly dynamic Landing Page featuring:
   - Full viewport background image (`hero-bg.png`).
