@@ -24,6 +24,11 @@ const envSchema = z.object({
     .refine(noPlaceholder, {
       message: "MONGO_URI must not be a template placeholder (e.g. 'your_mongo_uri')",
     }),
+  FIREBASE_PROJECT_ID: z
+    .string({ required_error: 'FIREBASE_PROJECT_ID environment variable is missing' })
+    .refine(noPlaceholder, {
+      message: "FIREBASE_PROJECT_ID must not be a template placeholder",
+    }),
 });
 
 // Validate the process.env object
