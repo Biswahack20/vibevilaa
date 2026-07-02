@@ -159,11 +159,13 @@ const ChatRoomPage = () => {
                 style={{
                   alignSelf: msg.senderName === userName ? 'flex-end' : 'flex-start',
                   maxWidth: '70%',
-                  background: msg.senderName === userName ? 'var(--color-primary)' : 'rgba(255,255,255,0.1)',
+                  background: msg.senderName === userName ? 'linear-gradient(135deg, var(--color-primary-light), var(--color-primary))' : 'rgba(255,255,255,0.08)',
                   padding: 'var(--space-3) var(--space-4)',
                   borderRadius: 'var(--radius-lg)',
                   borderBottomRightRadius: msg.senderName === userName ? 0 : 'var(--radius-lg)',
                   borderBottomLeftRadius: msg.senderName !== userName ? 0 : 'var(--radius-lg)',
+                  boxShadow: msg.senderName === userName ? '0 4px 15px rgba(6, 182, 212, 0.4)' : '0 2px 10px rgba(0,0,0,0.1)',
+                  border: msg.senderName !== userName ? '1px solid rgba(255,255,255,0.1)' : 'none',
                 }}
               >
                 <div style={{ fontSize: 'var(--text-xs)', color: msg.senderName === userName ? 'rgba(255,255,255,0.7)' : 'var(--color-primary-light)', marginBottom: 'var(--space-1)' }}>
@@ -200,7 +202,16 @@ const ChatRoomPage = () => {
                 border: '1px solid rgba(255,255,255,0.2)',
                 background: 'rgba(255,255,255,0.05)',
                 color: '#fff',
-                outline: 'none'
+                outline: 'none',
+                transition: 'var(--transition-fast)'
+              }}
+              onFocus={(e) => {
+                e.target.style.borderColor = 'var(--color-primary-light)';
+                e.target.style.boxShadow = '0 0 15px rgba(6, 182, 212, 0.4)';
+              }}
+              onBlur={(e) => {
+                e.target.style.borderColor = 'rgba(255,255,255,0.2)';
+                e.target.style.boxShadow = 'none';
               }}
             />
             <button 

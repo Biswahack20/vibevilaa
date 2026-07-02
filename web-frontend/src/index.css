@@ -5,38 +5,35 @@
    ========================================================================== */
 
 :root {
-  /* 1. Color Palette - Oceanic & Earthy Luxury */
-  --color-primary: #0e7490; /* Deep Ocean Teal */
-  --color-primary-light: #06b6d4; /* Cerulean Blue */
-  --color-primary-dark: #164e63; /* Abyss Blue */
+  /* 1. Color Palette - Premium Futuristic UI */
+  --color-primary: #00D4FF; /* Cyan */
+  --color-primary-light: #4DE2FF;
+  --color-primary-dark: #009BBF;
   
-  --color-secondary: #e17055; /* Warm Coral / Terracotta */
-  --color-secondary-light: #fab1a0; /* Soft Coral */
-  --color-secondary-dark: #cc4f36; /* Deep Rust */
+  --color-secondary: #2B6CFF; /* Blue */
+  --color-secondary-light: #6B98FF;
+  --color-secondary-dark: #1A4099;
+
+  --color-accent: #6E4BFF; /* Purple */
+  --color-accent-light: #9B82FF;
   
-  /* Neutral colors for Light Mode */
-  --color-bg-base: #f8fafc; /* Sea-breeze White */
-  --color-bg-surface: #ffffff; /* Crisp White */
-  --color-bg-surface-hover: #f0f9ff; /* Soft Sky Blue */
-  --color-bg-surface-active: #e0f2fe;
+  /* Backgrounds & Surfaces */
+  --color-bg-base: #061B2D;
+  --color-bg-surface: rgba(255, 255, 255, 0.08);
+  --color-bg-surface-hover: rgba(255, 255, 255, 0.12);
+  --color-bg-surface-active: rgba(255, 255, 255, 0.15);
   
-  --color-text-base: #334155;
-  --color-text-heading: #0f172a;
-  --color-text-muted: #64748b;
+  --color-text-base: rgba(255, 255, 255, 0.85);
+  --color-text-heading: #ffffff;
+  --color-text-muted: rgba(255, 255, 255, 0.6);
   
-  --color-border: #e2e8f0;
-  --color-border-hover: #cbd5e1;
-  --color-border-focus: #94a3b8;
+  --color-border: rgba(255, 255, 255, 0.18);
+  --color-border-hover: rgba(255, 255, 255, 0.25);
+  --color-border-focus: rgba(0, 212, 255, 0.5);
 
   /* Semantic Colors */
-  --color-success: #10b981; /* Seafoam Green */
-  --color-success-bg: #d1fae5;
+  --color-success: #10b981; 
   --color-error: #ef4444;
-  --color-error-bg: #fee2e2;
-  --color-warning: #f59e0b;
-  --color-warning-bg: #fef3c7;
-  --color-info: #3b82f6;
-  --color-info-bg: #dbeafe;
 
   /* 2. Typography - Elegant & Minimal */
   --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
@@ -48,10 +45,11 @@
   --text-base: 1rem;      /* 16px */
   --text-lg: 1.125rem;    /* 18px */
   --text-xl: 1.25rem;     /* 20px */
-  --text-2xl: 1.5rem;     /* 24px */
-  --text-3xl: 1.875rem;   /* 30px */
-  --text-4xl: 2.25rem;    /* 36px */
-  --text-5xl: 3rem;       /* 48px */
+  --text-2xl: 1.75rem;    /* 28px */
+  --text-3xl: 2.25rem;    /* 36px */
+  --text-4xl: 3rem;       /* 48px */
+  --text-5xl: 4.5rem;     /* 72px */
+  --text-6xl: 5.25rem;    /* 84px */
 
   /* 3. Spacing Scale */
   --space-0: 0;
@@ -75,12 +73,12 @@
   --radius-full: 9999px;
 
   /* 5. Shadows - Diffused & Cool */
-  --shadow-sm: 0 1px 2px 0 rgba(14, 116, 144, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(14, 116, 144, 0.08), 0 2px 4px -1px rgba(14, 116, 144, 0.04);
-  --shadow-lg: 0 10px 15px -3px rgba(14, 116, 144, 0.1), 0 4px 6px -2px rgba(14, 116, 144, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(14, 116, 144, 0.1), 0 10px 10px -5px rgba(14, 116, 144, 0.04);
-  --shadow-glow: 0 0 20px rgba(6, 182, 212, 0.25);
-  --shadow-glow-secondary: 0 0 20px rgba(225, 112, 85, 0.25);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 40px rgba(0, 212, 255, 0.45);
+  --shadow-glow-secondary: 0 0 40px rgba(43, 108, 255, 0.45);
 
   /* 6. Transitions & Animations */
   --transition-fast: 200ms ease-out;
@@ -116,49 +114,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Dark Mode Overrides */
+/* Dark Mode is the default mode now */
 @media (prefers-color-scheme: dark) {
-  :root {
-    /* Neutral colors for Dark Mode */
-    --color-bg-base: #082f49; /* Deep Ocean Night */
-    --color-bg-surface: #0c4a6e; /* Ocean Depth */
-    --color-bg-surface-hover: #075985; 
-    --color-bg-surface-active: #0369a1; 
-    
-    --color-text-base: #e0f2fe; /* Soft Cyan White */
-    --color-text-heading: #ffffff; /* Pure White */
-    --color-text-muted: #bae6fd; /* Light Cyan */
-    
-    --color-border: #0369a1;
-    --color-border-hover: #0284c7;
-    --color-border-focus: #0ea5e9;
-
-    /* Semantic adjustments for Dark Mode */
-    --color-success-bg: rgba(16, 185, 129, 0.15);
-    --color-error-bg: rgba(239, 68, 68, 0.15);
-    --color-warning-bg: rgba(245, 158, 11, 0.15);
-    --color-info-bg: rgba(59, 130, 246, 0.15);
-
-    /* Glow adjustments */
-    --shadow-glow: 0 0 25px rgba(6, 182, 212, 0.4);
-    --shadow-glow-secondary: 0 0 25px rgba(225, 112, 85, 0.4);
-    
-    /* Legacy dark mode variables */
-    --text: var(--color-text-base);
-    --text-h: var(--color-text-heading);
-    --bg: var(--color-bg-base);
-    --border: var(--color-border);
-    --code-bg: var(--color-bg-surface);
-    --accent: #06b6d4;
-    --accent-bg: rgba(6, 182, 212, 0.15);
-    --accent-border: rgba(6, 182, 212, 0.5);
-    --social-bg: var(--color-bg-surface);
-    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+  /* Inherit base variables as the primary theme is already dark */
 }
 
 /* Global Reset & Base Styles */
@@ -181,15 +139,18 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-text-heading);
   margin-top: 0;
+  letter-spacing: -0.01em;
 }
 
 h1 {
   font-size: var(--text-5xl);
-  letter-spacing: -0.02em;
+  font-weight: 800; /* Extra bold */
+  letter-spacing: -0.03em;
   margin-bottom: var(--space-8);
+  line-height: 1.1;
   
   @media (max-width: 1024px) {
     font-size: var(--text-4xl);

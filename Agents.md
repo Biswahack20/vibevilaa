@@ -30,13 +30,13 @@ This document outlines the core development rules, aesthetic guidelines, and pro
 - Secured backend JWT verification via `firebase-admin` utilizing `FIREBASE_PROJECT_ID` environment injection, bypassing the need for explicit service account files.
 - Synchronized Firebase authenticated users directly to the MongoDB backend upon successful login/signup.
 
-### UI & Aesthetics
-- Created a highly dynamic Landing Page featuring:
-  - Full viewport background image (`hero-bg.png`).
-  - Seamless full-screen `SplashScreen` that perfectly overlays the app and fades out to reveal the content.
-  - Transparent floating Navbar with a `mix-blend-mode: screen` logo integration to perfectly remove black backgrounds without losing color.
-  - Native, highly advanced "Spring-like" scroll-reveal animations using a custom `IntersectionObserver` component.
-  - Ambient glowing Orbs and floating Reality Show emojis across the entire background.
+### UI & Aesthetics (Premium $100M Startup Redesign)
+- Transitioned to an ultra-modern, Apple VisionOS / Stripe inspired aesthetic with heavy emphasis on depth, luxury, and cinematic motion.
+- Overhauled Global Tokens (`index.css`) to use a deep space/oceanic background (`#061B2D`) paired with high-contrast Cyan (`#00D4FF`), Blue (`#2B6CFF`), and Purple (`#6E4BFF`) neon accents.
+- Implemented a heavily blurred (`24px`), floating glass pill Navbar with glowing online indicators and a ghost-styled sign out button.
+- Redesigned the Hero Section to feature an animated text aurora gradient, a premium Twitch-style pulsing live badge, and a deeply atmospheric background using layered radial gradients.
+- Rebuilt the Features Section into a strict 3-column layout utilizing deeply blurred glass cards (`20px`), animated glowing gradient borders via CSS masks, and dynamic hover elevation.
+- Upgraded all interactive elements (buttons, inputs) to feature scale transforms on hover, intense glow spreads (`40px`), and animated gradients.
 
 ### Documentation & Project Management
 - Established `Agents.md` to formally track working rules, aesthetic guidelines, and project progress.
