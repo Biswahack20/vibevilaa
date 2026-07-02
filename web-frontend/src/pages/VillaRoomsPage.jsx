@@ -98,19 +98,22 @@ const VillaRoomsPage = () => {
                   style={{
                     padding: 'var(--space-6)',
                     background: 'rgba(255, 255, 255, 0.05)',
-                    backdropFilter: 'blur(10px)',
+                    backdropFilter: 'blur(16px)',
                     border: '1px solid rgba(255, 255, 255, 0.1)',
-                    borderRadius: 'var(--radius-lg)',
+                    borderRadius: 'var(--radius-xl)',
                     cursor: 'pointer',
-                    transition: 'var(--transition-fast)',
+                    transition: 'all var(--transition-fast)',
+                    boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)'
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-5px)';
+                    e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)';
                     e.currentTarget.style.boxShadow = 'var(--shadow-glow-secondary)';
+                    e.currentTarget.style.borderColor = 'rgba(225, 112, 85, 0.5)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = 'none';
+                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                    e.currentTarget.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
                   }}
                 >
                   <h3 style={{ margin: '0 0 var(--space-2) 0', color: 'var(--color-text-heading)' }}>{room.name}</h3>
@@ -124,17 +127,17 @@ const VillaRoomsPage = () => {
         {showCreateModal && (
           <div style={{
             position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
-            background: 'rgba(0, 5, 20, 0.8)', backdropFilter: 'blur(12px)',
+            background: 'rgba(4, 21, 36, 0.85)', backdropFilter: 'blur(16px)',
             display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 100,
             animation: 'fadeIn 0.3s ease-out'
           }}>
             <div style={{
-              background: 'linear-gradient(145deg, rgba(20, 40, 70, 0.9) 0%, rgba(10, 20, 40, 0.95) 100%)',
+              background: 'linear-gradient(145deg, rgba(14, 116, 144, 0.2) 0%, rgba(10, 20, 40, 0.95) 100%)',
               padding: 'var(--space-10)',
-              borderRadius: 'var(--radius-xl)',
+              borderRadius: 'var(--radius-2xl)',
               width: '100%', maxWidth: '450px',
-              border: '1px solid rgba(124, 255, 226, 0.2)', // Cyan-ish oceanic border
-              boxShadow: '0 20px 50px rgba(0,0,0,0.5), inset 0 0 20px rgba(124, 255, 226, 0.05)',
+              border: '1px solid rgba(6, 182, 212, 0.4)', // Cyan-ish oceanic border
+              boxShadow: '0 20px 50px rgba(0,0,0,0.7), inset 0 0 20px rgba(6, 182, 212, 0.1)',
               position: 'relative',
               overflow: 'hidden'
             }}>
